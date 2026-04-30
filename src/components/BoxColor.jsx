@@ -1,10 +1,11 @@
 import { useRef } from "react";
 
-function boxColor({ color, inputvalue, boxRef }) {
+const Boxcolor = ({ color, inputValue, boxRef }) => {
   const isMatch = inputValue === color;
 
   return (
     <div
+      ref={boxRef}
       className={`box ${color}`}
       style={{
         backgroundColor: isMatch ? color : "#1a1a2e",
@@ -15,14 +16,12 @@ function boxColor({ color, inputvalue, boxRef }) {
         boxShadow: isMatch ? `0 0 28px ${color}80` : "none",
       }}
     >
-      <span className="box-label">
-        {inputValue ? inputValue : "..."}
-      </span>
+      <span className="box-label">{inputValue ? inputValue : "..."}</span>
       <span className="box-status">
         {isMatch ? `¡Soy ${color}!` : `No soy ${color}`}
       </span>
     </div>
   );
-}
+};
 
-export default boxColor;
+export default Boxcolor;

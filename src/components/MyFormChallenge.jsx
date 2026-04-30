@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import BoxColor from "./BoxColor";
+import Boxcolor from "./Boxcolor";
 
 const colors = [
   "red",
@@ -13,7 +13,7 @@ const colors = [
   "olive",
 ];
 
-const MyFormChallenge = () => {
+const Myformchallenge = () => {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
   const boxRefs = useRef(colors.map(() => useRef(null)));
@@ -29,17 +29,18 @@ const MyFormChallenge = () => {
           ref={inputRef}
           type="text"
           placeholder="Escribe un color..."
+          onChange={handleChange}
           className="color-input"
           autoFocus
         />
       </div>
       <div className="grid">
         {colors.map((color, i) => (
-          <BoxColor
+          <Boxcolor
             key={color}
             color={color}
             inputValue={inputValue}
-            boxRef={boxRefs.current}
+            boxRef={boxRefs.current[i]}
           />
         ))}
       </div>
@@ -47,4 +48,4 @@ const MyFormChallenge = () => {
   );
 };
 
-export default MyFormChallenge;
+export default Myformchallenge;
