@@ -14,7 +14,14 @@ function boxColor({ color, inputvalue, boxRef }) {
         transform: isMatch ? "scale(1.06)" : "scale(1)",
         boxShadow: isMatch ? `0 0 28px ${color}80` : "none",
       }}
-    ></div>
+    >
+      <span className="box-label">
+        {inputValue ? inputValue : "..."}
+      </span>
+      <span className="box-status">
+        {isMatch ? `¡Soy ${color}!` : `No soy ${color}`}
+      </span>
+    </div>
   );
 }
 
